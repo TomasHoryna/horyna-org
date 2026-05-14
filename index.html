@@ -26,343 +26,71 @@
       --accent-dim: rgba(200, 167, 107, 0.5);
       --max-width: 760px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: var(--bg); color: var(--text);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      font-weight: 400;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px; line-height: 1.6; font-weight: 400;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
     }
-
-    main {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 80px 32px 120px;
-    }
-
-    /* Hero */
-    .hero {
-      margin-bottom: 96px;
-    }
-
+    main { max-width: var(--max-width); margin: 0 auto; padding: 80px 32px 120px; }
+    .hero { margin-bottom: 96px; }
     .hero h1 {
-      font-family: 'Instrument Serif', serif;
-      font-weight: 400;
-      font-size: 64px;
-      line-height: 1.15;
-      letter-spacing: 0;
-      margin-bottom: 12px;
+      font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 64px;
+      line-height: 1.15; letter-spacing: 0; margin-bottom: 12px;
     }
-
-    .hero .role {
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--text);
-      margin-bottom: 14px;
-      letter-spacing: -0.005em;
-    }
-
-    .hero .tagline {
-      font-size: 16px;
-      color: var(--text-secondary);
-      max-width: 540px;
-      line-height: 1.55;
-      margin-bottom: 24px;
-    }
-
-    .links {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
-
-    .links a {
-      color: var(--text);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-strong);
-      padding-bottom: 2px;
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .links a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* Sections */
-    section.block {
-      margin-bottom: 72px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--text-tertiary);
-      margin-bottom: 24px;
-    }
-
-    .about p {
-      font-size: 16px;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      max-width: 620px;
-    }
-
-    .about p + p {
-      margin-top: 14px;
-    }
-
-    .about p strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* Timeline */
-    .timeline {
-      position: relative;
-      padding-left: 24px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 5px;
-      top: 6px;
-      bottom: 6px;
-      width: 1px;
-      background: var(--border-strong);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-bottom: 32px;
-    }
-
-    .timeline-item:last-child {
-      padding-bottom: 0;
-    }
-
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: -23px;
-      top: 8px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 1px solid var(--accent-dim);
-    }
-
-    .timeline-item .period {
-      font-size: 12px;
-      color: var(--text-tertiary);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      margin-bottom: 4px;
-    }
-
-    .timeline-item .company {
-      font-size: 17px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 2px;
-      letter-spacing: -0.005em;
-    }
-
-    .timeline-item .position {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text);
-      margin-bottom: 12px;
-      line-height: 1.5;
-      letter-spacing: 0;
-    }
-
-    .timeline-item .position .role-text {
-      border-bottom: 1px solid var(--border-strong);
-      padding-bottom: 2px;
-    }
-
-    .timeline-item .position .location {
-      font-size: 13px;
-      color: var(--text-tertiary);
-      margin-left: 6px;
-    }
-
-    .timeline-item ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 2px;
-    }
-
-    .timeline-item ul li {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      margin-bottom: 6px;
-    }
-
-    .timeline-item ul li:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-earlier {
-      font-size: 14px;
-      color: var(--text-tertiary);
-      padding-top: 8px;
-      border-top: 1px dashed var(--border);
-      margin-top: 8px;
-    }
-
-    /* Achievements */
-    .achievement-item {
-      margin-bottom: 22px;
-      padding-left: 16px;
-      border-left: 1px solid var(--border);
-    }
-
-    .achievement-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .achievement-title {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 4px;
-      letter-spacing: -0.005em;
-      line-height: 1.4;
-    }
-
-    .achievement-body {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* Capabilities */
-    .capabilities-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px 40px;
-    }
-
-    .cap-group h3 {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 8px;
-      letter-spacing: -0.005em;
-    }
-
-    .cap-group p {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    /* Languages */
-    .languages p {
-      font-size: 15px;
-      color: var(--text-secondary);
-    }
-
-    .languages strong {
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 96px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 13px;
-      color: var(--text-tertiary);
-    }
-
-    footer .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    footer a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    footer a:hover {
-      color: var(--accent);
-    }
-
-    /* Responsive */
+    .hero .role { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 14px; letter-spacing: -0.005em; }
+    .hero .tagline { font-size: 16px; color: var(--text-secondary); max-width: 540px; line-height: 1.55; margin-bottom: 24px; }
+    .links { display: flex; gap: 20px; flex-wrap: wrap; font-size: 14px; }
+    .links a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; transition: color 0.2s ease, border-color 0.2s ease; }
+    .links a:hover { color: var(--accent); border-color: var(--accent); }
+    section.block { margin-bottom: 72px; }
+    .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.18em; color: var(--text-tertiary); margin-bottom: 24px; }
+    .about p { font-size: 16px; line-height: 1.7; color: var(--text-secondary); max-width: 620px; }
+    .about p + p { margin-top: 14px; }
+    .about p strong { color: var(--text); font-weight: 500; }
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px; width: 1px; background: var(--border-strong); }
+    .timeline-item { position: relative; padding-bottom: 32px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before { content: ''; position: absolute; left: -23px; top: 8px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 1px solid var(--accent-dim); }
+    .timeline-item .period { font-size: 12px; color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.02em; margin-bottom: 4px; }
+    .timeline-item .company { font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 2px; letter-spacing: -0.005em; }
+    .timeline-item .position { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 400; color: var(--text); margin-bottom: 12px; line-height: 1.5; letter-spacing: 0; }
+    .timeline-item .position .role-text { border-bottom: 1px solid var(--border-strong); padding-bottom: 2px; }
+    .timeline-item .position .location { font-size: 13px; color: var(--text-tertiary); margin-left: 6px; }
+    .timeline-item ul { list-style: none; padding: 0; margin-top: 2px; }
+    .timeline-item ul li { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 6px; }
+    .timeline-item ul li:last-child { margin-bottom: 0; }
+    .timeline-earlier { font-size: 14px; color: var(--text-tertiary); padding-top: 8px; border-top: 1px dashed var(--border); margin-top: 8px; }
+    .achievement-item { margin-bottom: 22px; padding-left: 16px; border-left: 1px solid var(--border); }
+    .achievement-item:last-child { margin-bottom: 0; }
+    .achievement-title { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; letter-spacing: -0.005em; line-height: 1.4; }
+    .achievement-body { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+    .capabilities-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+    .cap-group h3 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 8px; letter-spacing: -0.005em; }
+    .cap-group p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
+    .languages p { font-size: 15px; color: var(--text-secondary); }
+    .languages strong { color: var(--text); font-weight: 500; }
+    footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-tertiary); }
+    footer .version { opacity: 0.55; font-variant-numeric: tabular-nums; margin-left: 6px; }
+    footer .footer-links { display: flex; gap: 20px; }
+    footer a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; }
+    footer a:hover { color: var(--accent); }
     @media (max-width: 640px) {
-      main {
-        padding: 56px 24px 80px;
-      }
-
-      .hero {
-        margin-bottom: 64px;
-      }
-
-      .hero h1 {
-        font-size: 44px;
-      }
-
-      .hero .role {
-        font-size: 16px;
-      }
-
-      .hero .tagline {
-        font-size: 14px;
-      }
-
-      .capabilities-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 12px;
-        align-items: flex-start;
-      }
-
-      section.block {
-        margin-bottom: 56px;
-      }
+      main { padding: 56px 24px 80px; }
+      .hero { margin-bottom: 64px; }
+      .hero h1 { font-size: 44px; }
+      .hero .role { font-size: 16px; }
+      .hero .tagline { font-size: 14px; }
+      .capabilities-grid { grid-template-columns: 1fr; gap: 24px; }
+      footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+      section.block { margin-bottom: 56px; }
     }
-
-    /* Subtle entrance */
     @media (prefers-reduced-motion: no-preference) {
-      .hero, section.block, footer {
-        animation: fadeUp 0.6s ease-out backwards;
-      }
-
+      .hero, section.block, footer { animation: fadeUp 0.6s ease-out backwards; }
       .hero { animation-delay: 0s; }
       section.block:nth-of-type(1) { animation-delay: 0.05s; }
       section.block:nth-of-type(2) { animation-delay: 0.1s; }
@@ -370,7 +98,6 @@
       section.block:nth-of-type(4) { animation-delay: 0.2s; }
       section.block:nth-of-type(5) { animation-delay: 0.25s; }
       footer { animation-delay: 0.3s; }
-
       @keyframes fadeUp {
         from { opacity: 0; transform: translateY(12px); }
         to { opacity: 1; transform: translateY(0); }
@@ -380,18 +107,16 @@
 </head>
 <body>
   <main>
-    <!-- HERO -->
     <header class="hero">
       <h1>Tomáš Horyna</h1>
       <p class="role">General Manager &amp; COO</p>
       <p class="tagline">Operating leader. Post-acquisition integrations, scale-ups, and regulated environments.</p>
       <div class="links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
-        <a href="https://www.linkedin.com/in/tomashoryna/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </header>
 
-    <!-- ABOUT -->
     <section class="block about">
       <div class="section-label">About</div>
       <p>I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same in every role: bring structure to chaos, align the team on the right priorities, and put the P&amp;L on solid ground.</p>
@@ -400,11 +125,9 @@
       <p>Currently exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.</p>
     </section>
 
-    <!-- EXPERIENCE -->
     <section class="block experience">
       <div class="section-label">Experience</div>
       <div class="timeline">
-
         <div class="timeline-item">
           <div class="period">2025 – 2026</div>
           <div class="company">VISEMO</div>
@@ -415,7 +138,6 @@
             <li>Showcased at CES 2026 Las Vegas as one of 24 Swiss companies in the Swisstech pavilion</li>
           </ul>
         </div>
-
         <div class="timeline-item">
           <div class="period">2023 – 2025</div>
           <div class="company">Hive-Zox International</div>
@@ -426,7 +148,6 @@
             <li>Rolled out ERP across merged operations, replacing fragmented spreadsheets with investor-ready governance</li>
           </ul>
         </div>
-
         <div class="timeline-item">
           <div class="period">2021 – 2023</div>
           <div class="company">Hive-Zox International</div>
@@ -437,7 +158,6 @@
             <li>Led the post-acquisition integration of Zoxtracker and Hive-Tracker into a single operating entity</li>
           </ul>
         </div>
-
         <div class="timeline-item">
           <div class="period">2017 – 2020</div>
           <div class="company">FINEP / ZOXCALL</div>
@@ -447,7 +167,6 @@
             <li>Closed partnership with a major European telecom operator for eSIM device launch</li>
           </ul>
         </div>
-
         <div class="timeline-item">
           <div class="period">2016 – 2017</div>
           <div class="company">Daily Life</div>
@@ -456,42 +175,34 @@
             <li>Built consumer-facing iOS and Android apps, plus a Czech consumer-rights platform</li>
           </ul>
         </div>
-
         <div class="timeline-item">
           <div class="timeline-earlier">
             <strong style="color: var(--text);">Earlier (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager at Allianz and Honeywell
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- ACHIEVEMENTS -->
     <section class="block achievements">
       <div class="section-label">Selected Achievements</div>
-
       <div class="achievement-item">
         <div class="achievement-title">Integrated Zoxtracker + Hive-Tracker into Hive-Zox International</div>
         <div class="achievement-body">Unified processes, teams, and culture across two companies without business interruption, with full P&amp;L responsibility for the merged entity.</div>
       </div>
-
       <div class="achievement-item">
         <div class="achievement-title">Rolled out ERP across the merged entity</div>
         <div class="achievement-body">Replaced fragmented spreadsheets with a single investor-ready system, with governance and reporting cadence to match.</div>
       </div>
-
       <div class="achievement-item">
         <div class="achievement-title">Onboarded a major pharma industry player as anchor B2B client</div>
         <div class="achievement-body">Delivered into a pharma regulated environment (FDA, EU GDP), opening a long-term enterprise account that anchored the company's go-to-market.</div>
       </div>
-
       <div class="achievement-item">
         <div class="achievement-title">Built a 24/7 global call center from scratch</div>
         <div class="achievement-body">Multi-shift operations, global coverage, and enterprise SLAs. Stood up to support tier-1 enterprise clients across time zones.</div>
       </div>
     </section>
 
-    <!-- CAPABILITIES -->
     <section class="block capabilities">
       <div class="section-label">Capabilities</div>
       <div class="capabilities-grid">
@@ -514,24 +225,21 @@
       </div>
     </section>
 
-    <!-- LANGUAGES -->
     <section class="block languages">
       <div class="section-label">Languages</div>
       <p><strong>Czech</strong> (native) &nbsp;·&nbsp; <strong>English</strong> (fluent, daily working language)</p>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-      <div>&copy; <span id="year">2026</span> Tomáš Horyna</div>
+      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v2 · 2026-05-14</span></div>
       <div class="footer-links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
-        <a href="https://www.linkedin.com/in/tomashoryna/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </footer>
   </main>
 
   <script>
-    // Auto-update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
