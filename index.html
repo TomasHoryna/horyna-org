@@ -40,7 +40,7 @@
     .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--text-tertiary); padding: 5px 11px; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; display: inline-flex; align-items: center; gap: 5px; }
     .lang-btn:hover { color: var(--text); border-color: var(--border-strong); }
     .lang-btn.active { color: var(--text); border-color: var(--accent-dim); background: rgba(200, 167, 107, 0.08); }
-    .lang-btn .flag { font-size: 13px; line-height: 1; }
+    .lang-btn .flag { display: inline-block; vertical-align: middle; line-height: 0; border-radius: 1px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06); }
     .hero { margin-bottom: 72px; }
     .hero h1 {
       font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 72px;
@@ -119,8 +119,8 @@
 <body>
   <main>
     <div class="lang-switcher" role="group" aria-label="Language">
-      <button class="lang-btn" data-lang="en" type="button"><span class="flag">🇬🇧</span><span>EN</span></button>
-      <button class="lang-btn" data-lang="cz" type="button"><span class="flag">🇨🇿</span><span>CZ</span></button>
+      <button class="lang-btn" data-lang="en" type="button"><svg class="flag" viewBox="0 0 60 30" width="20" height="10" aria-hidden="true"><clipPath id="uk-clip"><rect width="60" height="30"/></clipPath><g clip-path="url(#uk-clip)"><rect width="60" height="30" fill="#012169"/><line x1="0" y1="0" x2="60" y2="30" stroke="#fff" stroke-width="6"/><line x1="60" y1="0" x2="0" y2="30" stroke="#fff" stroke-width="6"/><line x1="0" y1="0" x2="60" y2="30" stroke="#C8102E" stroke-width="2"/><line x1="60" y1="0" x2="0" y2="30" stroke="#C8102E" stroke-width="2"/><rect x="25" width="10" height="30" fill="#fff"/><rect y="10" width="60" height="10" fill="#fff"/><rect x="27" width="6" height="30" fill="#C8102E"/><rect y="12" width="60" height="6" fill="#C8102E"/></g></svg><span>EN</span></button>
+      <button class="lang-btn" data-lang="cz" type="button"><svg class="flag" viewBox="0 0 60 40" width="16" height="11" aria-hidden="true"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#D7141A"/><polygon points="0,0 30,20 0,40" fill="#11457E"/></svg><span>CZ</span></button>
     </div>
 
     <header class="hero">
@@ -251,7 +251,7 @@
     </section>
 
     <footer>
-      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v5 · 2026-05-15</span></div>
+      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v5.2 · 2026-05-15</span></div>
       <div class="footer-links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
         <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
@@ -321,55 +321,55 @@
         'role': 'General Manager &amp; COO',
         'tagline': 'Provozní leader. Post-akviziční integrace, scale-upy a regulovaná prostředí.',
         'section.about': 'O mně',
-        'about.p1': 'Pracuji jako provozní leader napříč majiteli řízenými scale-upy, post-akvizičními celky a regulovanými B2B prostředími. Vzorec je všude stejný: srovnat chaos, sladit tým na prioritách a postavit P&amp;L na pevné nohy.',
-        'about.p2': 'Nástup AI proměňuje, které provozní problémy má smysl řešit ručně. Sleduji to zblízka a chci tyhle nástroje nasazovat tam, kde reálně hnou s unit economics.',
-        'about.p3': 'Nejlepší výsledky odvádím s reálným mandátem, týmem, který rozumí svému oboru, a s problémem, který potřebuje strategii i hands-on exekuci.',
+        'about.p1': 'Pracuji jako provozní leader ve scale-upech řízených majitelem, v post-akvizičních celcích a v regulovaných B2B prostředích. Vzorec se opakuje: srovnat chaos, sjednotit tým na prioritách a postavit P&amp;L na pevné nohy.',
+        'about.p2': 'Nástup AI mění to, které provozní problémy má smysl řešit ručně. Sleduji to zblízka a chci tyhle nástroje pouštět tam, kde reálně hýbou s unit economics.',
+        'about.p3': 'Nejlepší výsledky odvádím tam, kde mám reálný mandát, tým, který rozumí svému oboru, a problém, který potřebuje strategii i hands-on exekuci.',
         'section.currently': 'Aktuálně',
-        'currently.body': 'Hledám senior provozní role na úrovni <strong>CEO, COO nebo GM</strong>. Praha + okolí, plný remote i hybrid jsou stejně vítané.',
+        'currently.body': 'Hledám seniorní provozní roli na úrovni <strong>CEO, COO nebo GM</strong>. Praha jako základna, full remote i hybridní režim stejně vítané.',
         'section.experience': 'Praxe',
         'exp.visemo.role': 'COO &amp; General Manager',
         'exp.visemo.loc': '· Prilly, Švýcarsko',
-        'exp.visemo.b1': 'Postavil švýcarský IoT scale-up od launche k ~25 lidem v interním týmu, 3 produktům a 15M+ pipeline za 5 měsíců',
-        'exp.visemo.b2': 'Vybráni do předního globálního AI startup akcelerátoru (jarní kohorta 2026)',
-        'exp.visemo.b3': 'Účast na CES 2026 v Las Vegas jako jedna z 24 švýcarských firem ve Swisstech pavilonu',
+        'exp.visemo.b1': 'Vybudoval jsem švýcarský IoT scale-up od spuštění k 25 lidem v interním týmu, 3 produktům a pipeline 15M+ za 5 měsíců',
+        'exp.visemo.b2': 'Probojovali jsme se do předního globálního AI startup akcelerátoru (jarní kohorta 2026)',
+        'exp.visemo.b3': 'Vystavovali jsme na CES 2026 v Las Vegas jako jedna z 24 švýcarských firem ve Swisstech pavilonu',
         'exp.hz2.role': 'COO &amp; General Manager',
         'exp.hz2.loc': '· Praha',
         'exp.hz2.b1': 'Plná P&amp;L odpovědnost za post-akviziční sloučený celek (~20 lidí v Praze)',
-        'exp.hz2.b2': 'Uzavření CHF 3M Pre-Series A v listopadu 2023, s podporou známých mezinárodních VC',
-        'exp.hz2.b3': 'Zavedení ERP napříč sloučenými operacemi, nahrazení roztříštěných excelů investor-ready governance',
+        'exp.hz2.b2': 'Uzavřel jsem Pre-Series A za CHF 3M v listopadu 2023, s podporou známých mezinárodních VC',
+        'exp.hz2.b3': 'Zavedl jsem ERP napříč sloučenými operacemi a nahradil roztříštěné excely investor-ready governance',
         'exp.hz1.role': 'Chief Customer Success Officer &amp; General Manager',
         'exp.hz1.loc': '· Praha',
-        'exp.hz1.b1': 'Onboarding velkého pharma hráče jako kotevního B2B klienta v regulovaném prostředí (FDA, EU GDP)',
-        'exp.hz1.b2': 'Postavil 24/7 globální call centrum od nuly s multi-shift provozem a enterprise SLA',
-        'exp.hz1.b3': 'Vedl post-akviziční integraci Zoxtrackeru a Hive-Trackeru do jednoho fungujícího celku',
+        'exp.hz1.b1': 'Získal jsem velkého pharma hráče jako klíčového B2B klienta v regulovaném prostředí (FDA, EU GDP)',
+        'exp.hz1.b2': 'Vybudoval jsem 24/7 globální call centrum od nuly, s vícesměnným provozem a enterprise SLA',
+        'exp.hz1.b3': 'Vedl jsem post-akviziční integraci Zoxtrackeru a Hive-Trackeru do jednoho fungujícího celku',
         'exp.finep.role': 'Chief Product Officer',
         'exp.finep.loc': '· Praha',
         'exp.finep.b1': 'End-to-end HW + SW produktová odpovědnost: PCBA výroba, firmware, distribuce',
-        'exp.finep.b2': 'Uzavřel partnerství s významným evropským telekomem pro launch eSIM zařízení',
+        'exp.finep.b2': 'Uzavřel jsem partnerství s významným evropským telekomem pro uvedení eSIM zařízení na trh',
         'exp.dl.role': 'Zakladatel',
         'exp.dl.loc': '· Praha',
-        'exp.dl.b1': 'Postavil consumer iOS a Android aplikace plus českou platformu pro spotřebitelská práva',
+        'exp.dl.b1': 'Postavil jsem iOS a Android aplikace pro koncové uživatele a českou platformu pro spotřebitelská práva',
         'exp.earlier': '<strong style="color: var(--text);">Dříve (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager v Allianz a Honeywell',
         'section.achievements': 'Vybrané úspěchy',
-        'ach.1.title': 'Integrace Zoxtracker + Hive-Tracker do Hive-Zox International',
+        'ach.1.title': 'Integrace Zoxtrackeru a Hive-Trackeru do Hive-Zox International',
         'ach.1.body': 'Sjednocení procesů, týmů a kultury dvou firem bez přerušení byznysu, s plnou P&amp;L odpovědností za sloučený celek.',
         'ach.2.title': 'Zavedení ERP napříč sloučeným celkem',
-        'ach.2.body': 'Roztříštěné excely nahrazené jedním investor-ready systémem, s governance a reporting cadence.',
-        'ach.3.title': 'Onboarding velkého pharma hráče jako kotevního B2B klienta',
-        'ach.3.body': 'Dodávky do pharma regulovaného prostředí (FDA, EU GDP), otevření dlouhodobého enterprise účtu, který ukotvil go-to-market firmy.',
-        'ach.4.title': 'Postavené 24/7 globální call centrum od nuly',
-        'ach.4.body': 'Multi-shift provoz, globální pokrytí, enterprise SLA. Postavené pro podporu tier-1 enterprise klientů napříč časovými pásmy.',
+        'ach.2.body': 'Místo roztříštěných excelů jeden investor-ready systém, s governance a pravidelným reportingem.',
+        'ach.3.title': 'Získání velkého pharma hráče jako klíčového B2B klienta',
+        'ach.3.body': 'Dodávky do regulovaného pharma prostředí (FDA, EU GDP) a otevření dlouhodobého enterprise účtu, který se stal základem obchodní strategie firmy.',
+        'ach.4.title': 'Vybudování 24/7 globálního call centra od nuly',
+        'ach.4.body': 'Vícesměnný provoz, globální pokrytí a enterprise SLA pro podporu tier-1 enterprise klientů napříč časovými pásmy.',
         'section.capabilities': 'Schopnosti',
         'cap.leadership.title': 'Vedení',
         'cap.leadership.body': 'C-level provozní role, plná P&amp;L odpovědnost, multi-funkční týmy napříč Sales, Product, Operations a Customer Success, budování kultury, reporting směrem k boardu.',
         'cap.operations.title': 'Provoz',
         'cap.operations.body': 'Process design, řízení KPI, service delivery a SLA, Lean a Six Sigma metodiky, IT service management frameworky, governance a připravenost na audity.',
         'cap.strategy.title': 'Strategie',
-        'cap.strategy.body': 'Post-akviziční integrace, scale-upy, přechod z majitelem řízené firmy na profesionálně řízenou, joint ventures, reporting na úrovni boardu.',
+        'cap.strategy.body': 'Post-akviziční integrace, scale-upy, přechod z majitelského řízení na profesionální, joint ventures, reporting na úrovni boardu.',
         'cap.product.title': 'Produkt a obory',
         'cap.product.body': 'B2B SaaS, IoT a tracking, supply chain visibility, regulovaná prostředí (pharma, letectví), ERP, AI a automatizace v provozu.',
         'section.languages': 'Jazyky',
-        'languages.body': '<strong>Čeština</strong> (rodný) &nbsp;·&nbsp; <strong>Angličtina</strong> (plynule, denní pracovní jazyk)'
+        'languages.body': '<strong>Čeština</strong> (rodilý mluvčí) &nbsp;·&nbsp; <strong>Angličtina</strong> (plynule, denní pracovní jazyk)'
       }
     };
 
