@@ -35,8 +35,13 @@
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       min-height: 100vh;
     }
-    main { max-width: var(--max-width); margin: 0 auto; padding: 80px 32px 120px; }
-    .hero { margin-bottom: 96px; }
+    main { max-width: var(--max-width); margin: 0 auto; padding: 80px 32px 120px; position: relative; }
+    .lang-switcher { position: absolute; top: 32px; right: 32px; display: flex; gap: 4px; z-index: 10; }
+    .lang-btn { background: transparent; border: 1px solid var(--border); color: var(--text-tertiary); padding: 5px 11px; border-radius: 4px; cursor: pointer; font-family: inherit; font-size: 12px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; display: inline-flex; align-items: center; gap: 5px; }
+    .lang-btn:hover { color: var(--text); border-color: var(--border-strong); }
+    .lang-btn.active { color: var(--text); border-color: var(--accent-dim); background: rgba(200, 167, 107, 0.08); }
+    .lang-btn .flag { font-size: 13px; line-height: 1; }
+    .hero { margin-bottom: 72px; }
     .hero h1 {
       font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 72px;
       line-height: 1.15; letter-spacing: 0.025em; margin-bottom: 16px;
@@ -84,7 +89,9 @@
     footer a:hover { color: var(--accent); }
     @media (max-width: 640px) {
       main { padding: 56px 24px 80px; }
-      .hero { margin-bottom: 64px; }
+      .lang-switcher { top: 18px; right: 18px; }
+      .lang-btn { padding: 4px 9px; font-size: 11px; }
+      .hero { margin-bottom: 56px; }
       .hero h1 { font-size: 48px; letter-spacing: 0.02em; }
       .hero .role { font-size: 16px; }
       .hero .tagline { font-size: 14px; }
@@ -100,7 +107,8 @@
       section.block:nth-of-type(3) { animation-delay: 0.15s; }
       section.block:nth-of-type(4) { animation-delay: 0.2s; }
       section.block:nth-of-type(5) { animation-delay: 0.25s; }
-      footer { animation-delay: 0.3s; }
+      section.block:nth-of-type(6) { animation-delay: 0.3s; }
+      footer { animation-delay: 0.35s; }
       @keyframes fadeUp {
         from { opacity: 0; transform: translateY(12px); }
         to { opacity: 1; transform: translateY(0); }
@@ -110,10 +118,15 @@
 </head>
 <body>
   <main>
+    <div class="lang-switcher" role="group" aria-label="Language">
+      <button class="lang-btn" data-lang="en" type="button"><span class="flag">🇬🇧</span><span>EN</span></button>
+      <button class="lang-btn" data-lang="cz" type="button"><span class="flag">🇨🇿</span><span>CZ</span></button>
+    </div>
+
     <header class="hero">
       <h1>Tomáš Horyna</h1>
-      <p class="role">General Manager &amp; COO</p>
-      <p class="tagline">Operating leader. Post-acquisition integrations, scale-ups, and regulated environments.</p>
+      <p class="role" data-i18n="role">General Manager &amp; COO</p>
+      <p class="tagline" data-i18n="tagline">Operating leader. Post-acquisition integrations, scale-ups, and regulated environments.</p>
       <div class="links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
         <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
@@ -121,126 +134,124 @@
     </header>
 
     <section class="block about">
-      <div class="section-label">About</div>
-      <p>I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same: bring structure to chaos, align the team on priorities, and put the P&amp;L on solid ground.</p>
-      <p>The AI shift is reshaping which operational problems are worth solving by hand. I follow this space closely and want to put these tools to work where they actually move the unit economics.</p>
-      <p>I'm at my best with a real mandate, a team that knows its domain, and a problem that needs both strategy and hands-on execution.</p>
+      <div class="section-label" data-i18n="section.about">About</div>
+      <p data-i18n="about.p1">I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same: bring structure to chaos, align the team on priorities, and put the P&amp;L on solid ground.</p>
+      <p data-i18n="about.p2">The AI shift is reshaping which operational problems are worth solving by hand. I follow this space closely and want to put these tools to work where they actually move the unit economics.</p>
+      <p data-i18n="about.p3">I'm at my best with a real mandate, a team that knows its domain, and a problem that needs both strategy and hands-on execution.</p>
     </section>
 
     <section class="block currently">
-      <div class="section-label">Currently</div>
+      <div class="section-label" data-i18n="section.currently">Currently</div>
       <div class="currently-card">
-        <p>Exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.</p>
+        <p data-i18n="currently.body">Exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.</p>
       </div>
     </section>
 
     <section class="block experience">
-      <div class="section-label">Experience</div>
+      <div class="section-label" data-i18n="section.experience">Experience</div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="period">2025 – 2026</div>
           <div class="company">VISEMO</div>
-          <div class="position"><span class="role-text">COO &amp; General Manager</span><span class="location">· Prilly, Switzerland</span></div>
+          <div class="position"><span class="role-text" data-i18n="exp.visemo.role">COO &amp; General Manager</span><span class="location" data-i18n="exp.visemo.loc">· Prilly, Switzerland</span></div>
           <ul>
-            <li>Built Switzerland-based IoT scale-up from launch to ~25 internal team, 3 products, and 15M+ pipeline within 5 months</li>
-            <li>Selected for a leading global AI startup accelerator program (Spring 2026 cohort)</li>
-            <li>Showcased at CES 2026 Las Vegas as one of 24 Swiss companies in the Swisstech pavilion</li>
+            <li data-i18n="exp.visemo.b1">Built Switzerland-based IoT scale-up from launch to ~25 internal team, 3 products, and 15M+ pipeline within 5 months</li>
+            <li data-i18n="exp.visemo.b2">Selected for a leading global AI startup accelerator program (Spring 2026 cohort)</li>
+            <li data-i18n="exp.visemo.b3">Showcased at CES 2026 Las Vegas as one of 24 Swiss companies in the Swisstech pavilion</li>
           </ul>
         </div>
         <div class="timeline-item">
           <div class="period">2023 – 2025</div>
           <div class="company">Hive-Zox International</div>
-          <div class="position"><span class="role-text">COO &amp; General Manager</span><span class="location">· Prague</span></div>
+          <div class="position"><span class="role-text" data-i18n="exp.hz2.role">COO &amp; General Manager</span><span class="location" data-i18n="exp.hz2.loc">· Prague</span></div>
           <ul>
-            <li>Full P&amp;L ownership of the post-acquisition merged entity (~20 people in Prague)</li>
-            <li>Closed CHF 3M Pre-Series A in Nov 2023, backed by well-known international VCs</li>
-            <li>Rolled out ERP across merged operations, replacing fragmented spreadsheets with investor-ready governance</li>
+            <li data-i18n="exp.hz2.b1">Full P&amp;L ownership of the post-acquisition merged entity (~20 people in Prague)</li>
+            <li data-i18n="exp.hz2.b2">Closed CHF 3M Pre-Series A in Nov 2023, backed by well-known international VCs</li>
+            <li data-i18n="exp.hz2.b3">Rolled out ERP across merged operations, replacing fragmented spreadsheets with investor-ready governance</li>
           </ul>
         </div>
         <div class="timeline-item">
           <div class="period">2021 – 2023</div>
           <div class="company">Hive-Zox International</div>
-          <div class="position"><span class="role-text">Chief Customer Success Officer &amp; General Manager</span><span class="location">· Prague</span></div>
+          <div class="position"><span class="role-text" data-i18n="exp.hz1.role">Chief Customer Success Officer &amp; General Manager</span><span class="location" data-i18n="exp.hz1.loc">· Prague</span></div>
           <ul>
-            <li>Onboarded a major pharma industry player as anchor B2B client in a regulated environment (FDA, EU GDP)</li>
-            <li>Built a 24/7 global call center from scratch, with multi-shift operations and enterprise SLAs</li>
-            <li>Led the post-acquisition integration of Zoxtracker and Hive-Tracker into a single operating entity</li>
+            <li data-i18n="exp.hz1.b1">Onboarded a major pharma industry player as anchor B2B client in a regulated environment (FDA, EU GDP)</li>
+            <li data-i18n="exp.hz1.b2">Built a 24/7 global call center from scratch, with multi-shift operations and enterprise SLAs</li>
+            <li data-i18n="exp.hz1.b3">Led the post-acquisition integration of Zoxtracker and Hive-Tracker into a single operating entity</li>
           </ul>
         </div>
         <div class="timeline-item">
           <div class="period">2017 – 2020</div>
           <div class="company">FINEP / ZOXCALL</div>
-          <div class="position"><span class="role-text">Chief Product Officer</span><span class="location">· Prague</span></div>
+          <div class="position"><span class="role-text" data-i18n="exp.finep.role">Chief Product Officer</span><span class="location" data-i18n="exp.finep.loc">· Prague</span></div>
           <ul>
-            <li>End-to-end HW + SW product ownership: PCBA manufacturing, firmware, distribution</li>
-            <li>Closed partnership with a major European telecom operator for eSIM device launch</li>
+            <li data-i18n="exp.finep.b1">End-to-end HW + SW product ownership: PCBA manufacturing, firmware, distribution</li>
+            <li data-i18n="exp.finep.b2">Closed partnership with a major European telecom operator for eSIM device launch</li>
           </ul>
         </div>
         <div class="timeline-item">
           <div class="period">2016 – 2017</div>
           <div class="company">Daily Life</div>
-          <div class="position"><span class="role-text">Founder</span><span class="location">· Prague</span></div>
+          <div class="position"><span class="role-text" data-i18n="exp.dl.role">Founder</span><span class="location" data-i18n="exp.dl.loc">· Prague</span></div>
           <ul>
-            <li>Built consumer-facing iOS and Android apps, plus a Czech consumer-rights platform</li>
+            <li data-i18n="exp.dl.b1">Built consumer-facing iOS and Android apps, plus a Czech consumer-rights platform</li>
           </ul>
         </div>
         <div class="timeline-item">
-          <div class="timeline-earlier">
-            <strong style="color: var(--text);">Earlier (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager at Allianz and Honeywell
-          </div>
+          <div class="timeline-earlier" data-i18n="exp.earlier"><strong style="color: var(--text);">Earlier (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager at Allianz and Honeywell</div>
         </div>
       </div>
     </section>
 
     <section class="block achievements">
-      <div class="section-label">Selected Achievements</div>
+      <div class="section-label" data-i18n="section.achievements">Selected Achievements</div>
       <div class="achievement-item">
-        <div class="achievement-title">Integrated Zoxtracker + Hive-Tracker into Hive-Zox International</div>
-        <div class="achievement-body">Unified processes, teams, and culture across two companies without business interruption, with full P&amp;L responsibility for the merged entity.</div>
+        <div class="achievement-title" data-i18n="ach.1.title">Integrated Zoxtracker + Hive-Tracker into Hive-Zox International</div>
+        <div class="achievement-body" data-i18n="ach.1.body">Unified processes, teams, and culture across two companies without business interruption, with full P&amp;L responsibility for the merged entity.</div>
       </div>
       <div class="achievement-item">
-        <div class="achievement-title">Rolled out ERP across the merged entity</div>
-        <div class="achievement-body">Replaced fragmented spreadsheets with a single investor-ready system, with governance and reporting cadence to match.</div>
+        <div class="achievement-title" data-i18n="ach.2.title">Rolled out ERP across the merged entity</div>
+        <div class="achievement-body" data-i18n="ach.2.body">Replaced fragmented spreadsheets with a single investor-ready system, with governance and reporting cadence to match.</div>
       </div>
       <div class="achievement-item">
-        <div class="achievement-title">Onboarded a major pharma industry player as anchor B2B client</div>
-        <div class="achievement-body">Delivered into a pharma regulated environment (FDA, EU GDP), opening a long-term enterprise account that anchored the company's go-to-market.</div>
+        <div class="achievement-title" data-i18n="ach.3.title">Onboarded a major pharma industry player as anchor B2B client</div>
+        <div class="achievement-body" data-i18n="ach.3.body">Delivered into a pharma regulated environment (FDA, EU GDP), opening a long-term enterprise account that anchored the company's go-to-market.</div>
       </div>
       <div class="achievement-item">
-        <div class="achievement-title">Built a 24/7 global call center from scratch</div>
-        <div class="achievement-body">Multi-shift operations, global coverage, and enterprise SLAs. Stood up to support tier-1 enterprise clients across time zones.</div>
+        <div class="achievement-title" data-i18n="ach.4.title">Built a 24/7 global call center from scratch</div>
+        <div class="achievement-body" data-i18n="ach.4.body">Multi-shift operations, global coverage, and enterprise SLAs. Stood up to support tier-1 enterprise clients across time zones.</div>
       </div>
     </section>
 
     <section class="block capabilities">
-      <div class="section-label">Capabilities</div>
+      <div class="section-label" data-i18n="section.capabilities">Capabilities</div>
       <div class="capabilities-grid">
         <div class="cap-group">
-          <h3>Leadership</h3>
-          <p>C-level operating roles, full P&amp;L ownership, multi-functional teams across Sales, Product, Operations, Customer Success, culture building, board reporting.</p>
+          <h3 data-i18n="cap.leadership.title">Leadership</h3>
+          <p data-i18n="cap.leadership.body">C-level operating roles, full P&amp;L ownership, multi-functional teams across Sales, Product, Operations, Customer Success, culture building, board reporting.</p>
         </div>
         <div class="cap-group">
-          <h3>Operations</h3>
-          <p>Process design, KPI management, service delivery and SLA, Lean and Six Sigma methodologies, IT service management frameworks, governance and audit readiness.</p>
+          <h3 data-i18n="cap.operations.title">Operations</h3>
+          <p data-i18n="cap.operations.body">Process design, KPI management, service delivery and SLA, Lean and Six Sigma methodologies, IT service management frameworks, governance and audit readiness.</p>
         </div>
         <div class="cap-group">
-          <h3>Strategy</h3>
-          <p>Post-acquisition integration, scale-ups, owner-managed to professionally-managed transitions, joint ventures, board-level reporting.</p>
+          <h3 data-i18n="cap.strategy.title">Strategy</h3>
+          <p data-i18n="cap.strategy.body">Post-acquisition integration, scale-ups, owner-managed to professionally-managed transitions, joint ventures, board-level reporting.</p>
         </div>
         <div class="cap-group">
-          <h3>Product &amp; Industry</h3>
-          <p>B2B SaaS, IoT and tracking, supply chain visibility, regulated environments (pharma, aviation), ERP, AI and automation in operations.</p>
+          <h3 data-i18n="cap.product.title">Product &amp; Industry</h3>
+          <p data-i18n="cap.product.body">B2B SaaS, IoT and tracking, supply chain visibility, regulated environments (pharma, aviation), ERP, AI and automation in operations.</p>
         </div>
       </div>
     </section>
 
     <section class="block languages">
-      <div class="section-label">Languages</div>
-      <p><strong>Czech</strong> (native) &nbsp;·&nbsp; <strong>English</strong> (fluent, daily working language)</p>
+      <div class="section-label" data-i18n="section.languages">Languages</div>
+      <p data-i18n="languages.body"><strong>Czech</strong> (native) &nbsp;·&nbsp; <strong>English</strong> (fluent, daily working language)</p>
     </section>
 
     <footer>
-      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v4 · 2026-05-15</span></div>
+      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v5 · 2026-05-15</span></div>
       <div class="footer-links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
         <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
@@ -250,6 +261,143 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const translations = {
+      en: {
+        'role': 'General Manager &amp; COO',
+        'tagline': 'Operating leader. Post-acquisition integrations, scale-ups, and regulated environments.',
+        'section.about': 'About',
+        'about.p1': 'I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same: bring structure to chaos, align the team on priorities, and put the P&amp;L on solid ground.',
+        'about.p2': 'The AI shift is reshaping which operational problems are worth solving by hand. I follow this space closely and want to put these tools to work where they actually move the unit economics.',
+        'about.p3': "I'm at my best with a real mandate, a team that knows its domain, and a problem that needs both strategy and hands-on execution.",
+        'section.currently': 'Currently',
+        'currently.body': 'Exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.',
+        'section.experience': 'Experience',
+        'exp.visemo.role': 'COO &amp; General Manager',
+        'exp.visemo.loc': '· Prilly, Switzerland',
+        'exp.visemo.b1': 'Built Switzerland-based IoT scale-up from launch to ~25 internal team, 3 products, and 15M+ pipeline within 5 months',
+        'exp.visemo.b2': 'Selected for a leading global AI startup accelerator program (Spring 2026 cohort)',
+        'exp.visemo.b3': 'Showcased at CES 2026 Las Vegas as one of 24 Swiss companies in the Swisstech pavilion',
+        'exp.hz2.role': 'COO &amp; General Manager',
+        'exp.hz2.loc': '· Prague',
+        'exp.hz2.b1': 'Full P&amp;L ownership of the post-acquisition merged entity (~20 people in Prague)',
+        'exp.hz2.b2': 'Closed CHF 3M Pre-Series A in Nov 2023, backed by well-known international VCs',
+        'exp.hz2.b3': 'Rolled out ERP across merged operations, replacing fragmented spreadsheets with investor-ready governance',
+        'exp.hz1.role': 'Chief Customer Success Officer &amp; General Manager',
+        'exp.hz1.loc': '· Prague',
+        'exp.hz1.b1': 'Onboarded a major pharma industry player as anchor B2B client in a regulated environment (FDA, EU GDP)',
+        'exp.hz1.b2': 'Built a 24/7 global call center from scratch, with multi-shift operations and enterprise SLAs',
+        'exp.hz1.b3': 'Led the post-acquisition integration of Zoxtracker and Hive-Tracker into a single operating entity',
+        'exp.finep.role': 'Chief Product Officer',
+        'exp.finep.loc': '· Prague',
+        'exp.finep.b1': 'End-to-end HW + SW product ownership: PCBA manufacturing, firmware, distribution',
+        'exp.finep.b2': 'Closed partnership with a major European telecom operator for eSIM device launch',
+        'exp.dl.role': 'Founder',
+        'exp.dl.loc': '· Prague',
+        'exp.dl.b1': 'Built consumer-facing iOS and Android apps, plus a Czech consumer-rights platform',
+        'exp.earlier': '<strong style="color: var(--text);">Earlier (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager at Allianz and Honeywell',
+        'section.achievements': 'Selected Achievements',
+        'ach.1.title': 'Integrated Zoxtracker + Hive-Tracker into Hive-Zox International',
+        'ach.1.body': 'Unified processes, teams, and culture across two companies without business interruption, with full P&amp;L responsibility for the merged entity.',
+        'ach.2.title': 'Rolled out ERP across the merged entity',
+        'ach.2.body': 'Replaced fragmented spreadsheets with a single investor-ready system, with governance and reporting cadence to match.',
+        'ach.3.title': 'Onboarded a major pharma industry player as anchor B2B client',
+        'ach.3.body': "Delivered into a pharma regulated environment (FDA, EU GDP), opening a long-term enterprise account that anchored the company's go-to-market.",
+        'ach.4.title': 'Built a 24/7 global call center from scratch',
+        'ach.4.body': 'Multi-shift operations, global coverage, and enterprise SLAs. Stood up to support tier-1 enterprise clients across time zones.',
+        'section.capabilities': 'Capabilities',
+        'cap.leadership.title': 'Leadership',
+        'cap.leadership.body': 'C-level operating roles, full P&amp;L ownership, multi-functional teams across Sales, Product, Operations, Customer Success, culture building, board reporting.',
+        'cap.operations.title': 'Operations',
+        'cap.operations.body': 'Process design, KPI management, service delivery and SLA, Lean and Six Sigma methodologies, IT service management frameworks, governance and audit readiness.',
+        'cap.strategy.title': 'Strategy',
+        'cap.strategy.body': 'Post-acquisition integration, scale-ups, owner-managed to professionally-managed transitions, joint ventures, board-level reporting.',
+        'cap.product.title': 'Product &amp; Industry',
+        'cap.product.body': 'B2B SaaS, IoT and tracking, supply chain visibility, regulated environments (pharma, aviation), ERP, AI and automation in operations.',
+        'section.languages': 'Languages',
+        'languages.body': '<strong>Czech</strong> (native) &nbsp;·&nbsp; <strong>English</strong> (fluent, daily working language)'
+      },
+      cz: {
+        'role': 'General Manager &amp; COO',
+        'tagline': 'Provozní leader. Post-akviziční integrace, scale-upy a regulovaná prostředí.',
+        'section.about': 'O mně',
+        'about.p1': 'Pracuji jako provozní leader napříč majiteli řízenými scale-upy, post-akvizičními celky a regulovanými B2B prostředími. Vzorec je všude stejný: srovnat chaos, sladit tým na prioritách a postavit P&amp;L na pevné nohy.',
+        'about.p2': 'Nástup AI proměňuje, které provozní problémy má smysl řešit ručně. Sleduji to zblízka a chci tyhle nástroje nasazovat tam, kde reálně hnou s unit economics.',
+        'about.p3': 'Nejlepší výsledky odvádím s reálným mandátem, týmem, který rozumí svému oboru, a s problémem, který potřebuje strategii i hands-on exekuci.',
+        'section.currently': 'Aktuálně',
+        'currently.body': 'Hledám senior provozní role na úrovni <strong>CEO, COO nebo GM</strong>. Praha + okolí, plný remote i hybrid jsou stejně vítané.',
+        'section.experience': 'Praxe',
+        'exp.visemo.role': 'COO &amp; General Manager',
+        'exp.visemo.loc': '· Prilly, Švýcarsko',
+        'exp.visemo.b1': 'Postavil švýcarský IoT scale-up od launche k ~25 lidem v interním týmu, 3 produktům a 15M+ pipeline za 5 měsíců',
+        'exp.visemo.b2': 'Vybráni do předního globálního AI startup akcelerátoru (jarní kohorta 2026)',
+        'exp.visemo.b3': 'Účast na CES 2026 v Las Vegas jako jedna z 24 švýcarských firem ve Swisstech pavilonu',
+        'exp.hz2.role': 'COO &amp; General Manager',
+        'exp.hz2.loc': '· Praha',
+        'exp.hz2.b1': 'Plná P&amp;L odpovědnost za post-akviziční sloučený celek (~20 lidí v Praze)',
+        'exp.hz2.b2': 'Uzavření CHF 3M Pre-Series A v listopadu 2023, s podporou známých mezinárodních VC',
+        'exp.hz2.b3': 'Zavedení ERP napříč sloučenými operacemi, nahrazení roztříštěných excelů investor-ready governance',
+        'exp.hz1.role': 'Chief Customer Success Officer &amp; General Manager',
+        'exp.hz1.loc': '· Praha',
+        'exp.hz1.b1': 'Onboarding velkého pharma hráče jako kotevního B2B klienta v regulovaném prostředí (FDA, EU GDP)',
+        'exp.hz1.b2': 'Postavil 24/7 globální call centrum od nuly s multi-shift provozem a enterprise SLA',
+        'exp.hz1.b3': 'Vedl post-akviziční integraci Zoxtrackeru a Hive-Trackeru do jednoho fungujícího celku',
+        'exp.finep.role': 'Chief Product Officer',
+        'exp.finep.loc': '· Praha',
+        'exp.finep.b1': 'End-to-end HW + SW produktová odpovědnost: PCBA výroba, firmware, distribuce',
+        'exp.finep.b2': 'Uzavřel partnerství s významným evropským telekomem pro launch eSIM zařízení',
+        'exp.dl.role': 'Zakladatel',
+        'exp.dl.loc': '· Praha',
+        'exp.dl.b1': 'Postavil consumer iOS a Android aplikace plus českou platformu pro spotřebitelská práva',
+        'exp.earlier': '<strong style="color: var(--text);">Dříve (2011 – 2016)</strong> &nbsp;·&nbsp; Senior Project / Program Manager v Allianz a Honeywell',
+        'section.achievements': 'Vybrané úspěchy',
+        'ach.1.title': 'Integrace Zoxtracker + Hive-Tracker do Hive-Zox International',
+        'ach.1.body': 'Sjednocení procesů, týmů a kultury dvou firem bez přerušení byznysu, s plnou P&amp;L odpovědností za sloučený celek.',
+        'ach.2.title': 'Zavedení ERP napříč sloučeným celkem',
+        'ach.2.body': 'Roztříštěné excely nahrazené jedním investor-ready systémem, s governance a reporting cadence.',
+        'ach.3.title': 'Onboarding velkého pharma hráče jako kotevního B2B klienta',
+        'ach.3.body': 'Dodávky do pharma regulovaného prostředí (FDA, EU GDP), otevření dlouhodobého enterprise účtu, který ukotvil go-to-market firmy.',
+        'ach.4.title': 'Postavené 24/7 globální call centrum od nuly',
+        'ach.4.body': 'Multi-shift provoz, globální pokrytí, enterprise SLA. Postavené pro podporu tier-1 enterprise klientů napříč časovými pásmy.',
+        'section.capabilities': 'Schopnosti',
+        'cap.leadership.title': 'Vedení',
+        'cap.leadership.body': 'C-level provozní role, plná P&amp;L odpovědnost, multi-funkční týmy napříč Sales, Product, Operations a Customer Success, budování kultury, reporting směrem k boardu.',
+        'cap.operations.title': 'Provoz',
+        'cap.operations.body': 'Process design, řízení KPI, service delivery a SLA, Lean a Six Sigma metodiky, IT service management frameworky, governance a připravenost na audity.',
+        'cap.strategy.title': 'Strategie',
+        'cap.strategy.body': 'Post-akviziční integrace, scale-upy, přechod z majitelem řízené firmy na profesionálně řízenou, joint ventures, reporting na úrovni boardu.',
+        'cap.product.title': 'Produkt a obory',
+        'cap.product.body': 'B2B SaaS, IoT a tracking, supply chain visibility, regulovaná prostředí (pharma, letectví), ERP, AI a automatizace v provozu.',
+        'section.languages': 'Jazyky',
+        'languages.body': '<strong>Čeština</strong> (rodný) &nbsp;·&nbsp; <strong>Angličtina</strong> (plynule, denní pracovní jazyk)'
+      }
+    };
+
+    function setLang(lang) {
+      if (!translations[lang]) lang = 'en';
+      document.documentElement.lang = lang === 'cz' ? 'cs' : 'en';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const value = translations[lang][key];
+        if (value !== undefined) el.innerHTML = value;
+      });
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+        btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+      });
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang')));
+    });
+
+    let initial = 'en';
+    try {
+      const saved = localStorage.getItem('lang');
+      if (saved && translations[saved]) initial = saved;
+    } catch (e) {}
+    setLang(initial);
   </script>
 </body>
 </html>
