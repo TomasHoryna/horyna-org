@@ -38,8 +38,8 @@
     main { max-width: var(--max-width); margin: 0 auto; padding: 80px 32px 120px; }
     .hero { margin-bottom: 96px; }
     .hero h1 {
-      font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 56px;
-      line-height: 1.2; letter-spacing: 0.015em; margin-bottom: 14px;
+      font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 72px;
+      line-height: 1.15; letter-spacing: 0.025em; margin-bottom: 16px;
     }
     .hero .role { font-size: 18px; font-weight: 500; color: var(--text); margin-bottom: 14px; letter-spacing: -0.005em; }
     .hero .tagline { font-size: 16px; color: var(--text-secondary); max-width: 540px; line-height: 1.55; margin-bottom: 24px; }
@@ -74,6 +74,9 @@
     .cap-group p { font-size: 14px; color: var(--text-secondary); line-height: 1.55; }
     .languages p { font-size: 15px; color: var(--text-secondary); }
     .languages strong { color: var(--text); font-weight: 500; }
+    .currently-card { padding: 22px 24px; border-left: 2px solid var(--accent); background: var(--surface); border-radius: 0 4px 4px 0; }
+    .currently-card p { font-size: 17px; font-weight: 500; color: var(--text); line-height: 1.55; letter-spacing: -0.005em; }
+    .currently-card p strong { color: var(--accent); font-weight: 500; }
     footer { margin-top: 96px; padding-top: 32px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-tertiary); }
     footer .version { opacity: 0.55; font-variant-numeric: tabular-nums; margin-left: 6px; }
     footer .footer-links { display: flex; gap: 20px; }
@@ -82,7 +85,7 @@
     @media (max-width: 640px) {
       main { padding: 56px 24px 80px; }
       .hero { margin-bottom: 64px; }
-      .hero h1 { font-size: 44px; }
+      .hero h1 { font-size: 48px; letter-spacing: 0.02em; }
       .hero .role { font-size: 16px; }
       .hero .tagline { font-size: 14px; }
       .capabilities-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -119,10 +122,16 @@
 
     <section class="block about">
       <div class="section-label">About</div>
-      <p>I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same in every role: bring structure to chaos, align the team on the right priorities, and put the P&amp;L on solid ground.</p>
-      <p>The AI shift is reshaping which operational problems are worth solving by hand. I follow this space closely and want to put these tools to work where they actually move the unit economics. Not as a checkbox.</p>
+      <p>I work as an operating leader across owner-managed scale-ups, post-acquisition entities, and regulated B2B environments. The pattern is the same: bring structure to chaos, align the team on priorities, and put the P&amp;L on solid ground.</p>
+      <p>The AI shift is reshaping which operational problems are worth solving by hand. I follow this space closely and want to put these tools to work where they actually move the unit economics.</p>
       <p>I'm at my best with a real mandate, a team that knows its domain, and a problem that needs both strategy and hands-on execution.</p>
-      <p>Currently exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.</p>
+    </section>
+
+    <section class="block currently">
+      <div class="section-label">Currently</div>
+      <div class="currently-card">
+        <p>Exploring senior operating roles at <strong>CEO, COO, or GM</strong> level. Prague-based, with remote and hybrid arrangements equally welcome.</p>
+      </div>
     </section>
 
     <section class="block experience">
@@ -231,7 +240,7 @@
     </section>
 
     <footer>
-      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v3 · 2026-05-14</span></div>
+      <div>&copy; <span id="year">2026</span> Tomáš Horyna<span class="version">· v4 · 2026-05-15</span></div>
       <div class="footer-links">
         <a href="mailto:tomas@horyna.org">tomas@horyna.org</a>
         <a href="https://www.linkedin.com/in/horynatomas/" target="_blank" rel="noopener">LinkedIn</a>
